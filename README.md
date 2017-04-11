@@ -11,7 +11,7 @@ find all of the satellite Ids for the satellites that are recorded and separate 
 into their times and corresponding SNR values.  These are then plotted against
 eachother in a separate plot for each satellite.
 
-There are 2 CSV files included.  They are hour_test_1.csv and hour_test_2.csv.  Let me 
+There are 2 txt files included.  They are hour_test_1.txt and hour_test_2.txt.  Let me 
 know if you would like more uploaded.
 
 Author: Keenen Francois-King
