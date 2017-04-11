@@ -8,7 +8,7 @@ Author: Keenen Francois-King
 import matplotlib.pyplot as plt
 
 
-f = open('Eltima Software/RS232 Data Logger/Logs/hour_test_1.txt')
+f = open('hour_test_1.txt')
 
 text = f.readlines()
 
