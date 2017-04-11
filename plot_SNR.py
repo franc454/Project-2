@@ -98,6 +98,7 @@ for x in sat_id:
         
         locs,labels = plt.xticks()
         plt.xticks(locs, map(lambda x: "%.1f" % x, locs))
+        plt.show()
 
         #empty x_vals and y_vals so the next satellite data can be plotted
         x_vals = []
