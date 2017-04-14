@@ -6,9 +6,14 @@ Author: Keenen Francois-King
 """
 
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
 
+#Change this name to the name of the .txt file you want to read.  It will then 
+#read the file and save the plots into a PDF of the same name
+name = 'hour_test_1'
 
-f = open('hour_test_1.txt')
+f = open(name + '.txt')
+pdf = PdfPages(name + '.pdf')
 
 text = f.readlines()
 
@@ -74,31 +79,33 @@ y_vals = []
 
 #look at the list for one satellite
 for x in sat_id:  
-    #split data for one satellite into time (x-axis) and SNR (y-axis)
+    #split data for one satellite into time (x-axis) and SNR (y-axis).
+    #Use x[1:] because x[0] is the satellite ID.
     for y in x[1:]:
         try:
             x_vals.append(y[0])
             y_vals.append(y[1])
         except (ValueError, IndexError):
             continue
-        
-    #plot data for one satellite. Greater than zero so that satellites with no SNR vals aren't plotted
+       
+    #plot data for one satellite. Lengths greater than zero so that satellites with no SNR vals aren't plotted   
     if (len(x_vals) > 0) and (len(y_vals) > 0):
-        plt.figure(figsize = (10,5))
-        #I saved the first item in each list in sat_id as the ID for that satellite.
+        
+        plt.figure(figsize = (10, 5))
+        #I saved the first item (x[0]) in each list in sat_id as the ID for that satellite.
         plt.title('Satellite ' + x[0], fontsize=15, fontweight='bold')
         plt.ylabel('SNR (C/N0)', fontsize=10)
         plt.xlabel('Time [UTC] (hhmmss)', fontsize=10)
-        
+
         plt.ylim([(min(y_vals)-1),(max(y_vals)+1)])
         
         #plot the times and SNR vals that were taken from the sat_id list for a 
         #given satellite
         plt.scatter(x_vals[:], y_vals[:], s=.5) 
-        
         locs,labels = plt.xticks()
         plt.xticks(locs, map(lambda x: "%.1f" % x, locs))
-        plt.show()
+        
+        pdf.savefig()
 
         #empty x_vals and y_vals so the next satellite data can be plotted
         x_vals = []
@@ -106,3 +113,6 @@ for x in sat_id:
 
     else:
         continue
+
+pdf.close()
+
