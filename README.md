@@ -18,6 +18,6 @@ know if you would like more uploaded.
 Change the 'name' variable at the beginning of the script to what the name of your txt file
 is.  The script will then read the file and save a PDF of the plots under the same name.
 Example:  if the file I want to read is 'hour_test_1.txt', set name to 'hour_test_1'.  The
-          PDF file of the plots will be saved as 'hour_test_1.pdf.
+          PDF file of the plots will be saved as 'hour_test_1.pdf'.
 
 Author: Keenen Francois-King
