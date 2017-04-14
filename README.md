@@ -14,4 +14,9 @@ eachother in a separate plot for each satellite.
 There are 2 txt documents included.  They are hour_test_1.txt and hour_test_2.txt.  Let me 
 know if you would like more uploaded.
 
+Change the 'name' variable at the beginning of the script to what the name of your txt file
+is.  The script will then read the file and save a PDF of the plots under the same name.
+Example:  if the file I want to read is 'hour_test_1.txt', set name to 'hour_test_1'.  The
+          PDF file of the plots will be saved as 'hour_test_1.pdf.
+
 Author: Keenen Francois-King
